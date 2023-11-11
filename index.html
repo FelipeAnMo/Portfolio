@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Felipe Moretzsohn | Portfólio</title>
+
+        <script src="https://kit.fontawesome.com/047d9000fc.js" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="background"></div>
+
+        <!-- Apresentação (Home) -->
+        <section id="home">
+            <div class="container">
+                <div id="apresentacao">
+                   <p>Olá, meu nome é</p>
+                   <h1>Felipe Moretzsohn</h1>
+                   <p>Sou desenvolvedor Full Stack</p>
+                </div>
+   
+                <a id="seta" href="#info">
+                   <i class="fa-solid fa-chevron-down fa-4x"></i>
+                </a>
+           </div>
+        </section>
+
+        <!-- Descrição (Informações e Projetos) -->
+        <section id="descricao">
+            <div class="container">
+                <div class="box">
+                    <h2 id="info">Informações</h2>
+
+                    <div id="box-informacoes">
+                        <div id="box-top">
+                            <div id="sobre" class="box-titulo" onclick="mudarAba(1)">
+                                <p>Sobre</p>
+                            </div>
+
+                            <div id="habilidades" class="box-titulo" onclick="mudarAba(2)">
+                                <p>habilidades</p>
+                            </div>
+                        </div>
+
+                        <div id="box-bottom">
+                            <p id="info-paragrafo">
+                                Meu nome é <span>Felipe Andrade Moretzsohn</span>, 
+                                sou um desenvolvedor <span>Full stack</span>. 
+                                Estou graduando <span>Engenharia de Software</span> 
+                                e busco aprimorar meus conhecimentos 
+                                na área da tecnologia.
+                            </p>
+
+                            <div id="info-habilidades">
+                                <p>Possuo conhecimentos para desenvolver 
+                                    aplicações web utilizando <span id="html">HTML</span>, 
+                                    <span id="css">CSS</span>, <span id="js">JavaScript</span>, 
+                                    <span id="php">PHP</span>, <span id="bs">Bootstrap</span> 
+                                    e <span id="bd">Banco de dados PHPMyAdmin</span>.
+                                </p>
+
+                                <div id="icones">
+                                    <div class="icones-habilidades">
+                                        <i class="fa-brands fa-html5 fa-3x" style="color: #E34F26;"></i>
+                                        <p>HTML</p>
+                                    </div>
+        
+                                    <div class="icones-habilidades">
+                                        <i class="fa-brands fa-css3-alt fa-3x" style="color: #1572B6;"></i>
+                                        <p>CSS</p>
+                                    </div>
+        
+                                    <div class="icones-habilidades">
+                                        <i class="fa-brands fa-square-js fa-3x" style="color: #F7DF1E;"></i>
+                                        <p>JS</p>
+                                    </div>
+        
+                                    <div class="icones-habilidades">
+                                        <i class="fa-brands fa-php fa-3x" style="color: #777BB4;"></i>
+                                        <p>PHP</p>
+                                    </div>
+        
+                                    <div class="icones-habilidades">
+                                        <i class="fa-brands fa-bootstrap fa-3x" style="color: #7952B3;"></i>
+                                        <p>BS</p>
+                                    </div>
+        
+                                    <div class="icones-habilidades">
+                                        <i class="fa-solid fa-database fa-3x" style="color: #ababab;"></i>
+                                        <p>BD</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h2>Projetos</h2>
+
+                    <div id="box-projetos">
+                        <ul id="nomes-projetos">
+                            <li>
+                                <button id="marketplace" onclick="mudarAbaProjeto(1)">Marketplace</button>
+                            </li>
+                            <li>
+                                <button id="youwrite" onclick="mudarAbaProjeto(2)">YouWrite</button>
+                            </li>
+                            <li>
+                                <button id="minigame" onclick="mudarAbaProjeto(3)">Minigame</button>
+                            </li>
+                        </ul>
+
+                        <div id="box-imagens-projetos">
+                            <div id="imagens-projetos">
+                                <div>
+                                    <p>Em breve</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rodapé (Contato e Redes sociais) -->
+        <footer>
+            <div class="container">
+                <div>
+                    <h3 id="contato">Contato</h3>
+
+                    <p id="email">Email: felipe.moretzsohn@gmail.com</p>
+                </div>
+
+                <div id="redes">
+                    <a href="https://github.com/FelipeAM470" target="_blank">
+                        <i class="fa-brands fa-github fa-2xl"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/felipe-andrade-moretzsohn-aa6129251/" target="_blank">
+                        <i class="fa-brands fa-linkedin fa-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
