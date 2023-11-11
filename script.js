@@ -313,3 +313,15 @@ if(window.innerWidth > 1024 && window.innerWidth < 1164 && (numero === 1 || nume
 }
 
 boxBottom.style.height = boxBottomSobre + 'px';
+
+document.addEventListener("visibilitychange", function() {
+    let elemCubos = document.getElementById('background').querySelectorAll('.cubos');
+
+    if (document.visibilityState == 'visible') {
+        elemCubos.forEach((e => {
+            e.remove();
+        }));
+    }
+});
+
+
