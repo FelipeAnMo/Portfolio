@@ -21,104 +21,213 @@
                    <p>Sou desenvolvedor Full Stack</p>
                 </div>
    
-                <a id="seta" href="#info">
+                <a id="seta" href="#habilidades">
                    <i class="fa-solid fa-chevron-down fa-4x"></i>
                 </a>
            </div>
         </section>
 
         <!-- Descrição (Informações e Projetos) -->
-        <section id="descricao">
+        <section id="habilidades">
             <div class="container">
                 <div class="box">
-                    <h2 id="info">Informações</h2>
+                    <div id="hTittle">
+                        <h2>Habilidades</h2>
+                    </div>
+                    
+                    <div id="habilidade-box">
+                        <button id="prev" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
 
-                    <div id="box-informacoes">
-                        <div id="box-top">
-                            <div id="sobre" class="box-titulo" onclick="mudarAba(1)">
-                                <p>Sobre</p>
-                            </div>
+                        <div id="carousel-container">
+                            <div id="carousel">
+                                <div class="carousel-item">
+                                    <div id="html-box">
+                                        <i class="fa-brands fa-html5"></i>
+                                    </div>
+                                </div>
 
-                            <div id="habilidades" class="box-titulo" onclick="mudarAba(2)">
-                                <p>habilidades</p>
-                            </div>
-                        </div>
+                                <div class="carousel-item">
+                                    <div id="css-box">
+                                        <i class="fa-brands fa-css3-alt"></i>
+                                    </div>
+                                </div>
 
-                        <div id="box-bottom">
-                            <p id="info-paragrafo">
-                                Meu nome é <span>Felipe Andrade Moretzsohn</span>, 
-                                sou um desenvolvedor <span>Full stack</span>. 
-                                Estou graduando <span>Engenharia de Software</span> 
-                                e busco aprimorar meus conhecimentos 
-                                na área da tecnologia.
-                            </p>
+                                <div class="carousel-item">
+                                    <div id="js-box">
+                                        <i class="fa-brands fa-js"></i>
+                                    </div>
+                                </div>
 
-                            <div id="info-habilidades">
-                                <p>Possuo conhecimentos para desenvolver 
-                                    aplicações web utilizando <span id="html">HTML</span>, 
-                                    <span id="css">CSS</span>, <span id="js">JavaScript</span>, 
-                                    <span id="php">PHP</span>, <span id="bs">Bootstrap</span> 
-                                    e <span id="bd">Banco de dados PHPMyAdmin</span>.
-                                </p>
+                                <div class="carousel-item">
+                                    <div id="angular-box">
+                                        <i class="fa-brands fa-angular"></i>
+                                    </div>
+                                </div>
 
-                                <div id="icones">
-                                    <div class="icones-habilidades">
-                                        <i class="fa-brands fa-html5 fa-3x" style="color: #E34F26;"></i>
-                                        <p>HTML</p>
+                                <div class="carousel-item">
+                                    <div id="php-box">
+                                        <i class="fa-brands fa-php"></i>
                                     </div>
-        
-                                    <div class="icones-habilidades">
-                                        <i class="fa-brands fa-css3-alt fa-3x" style="color: #1572B6;"></i>
-                                        <p>CSS</p>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div id="bs-box">
+                                        <i class="fa-brands fa-bootstrap"></i>
                                     </div>
-        
-                                    <div class="icones-habilidades">
-                                        <i class="fa-brands fa-square-js fa-3x" style="color: #F7DF1E;"></i>
-                                        <p>JS</p>
-                                    </div>
-        
-                                    <div class="icones-habilidades">
-                                        <i class="fa-brands fa-php fa-3x" style="color: #777BB4;"></i>
-                                        <p>PHP</p>
-                                    </div>
-        
-                                    <div class="icones-habilidades">
-                                        <i class="fa-brands fa-bootstrap fa-3x" style="color: #7952B3;"></i>
-                                        <p>BS</p>
-                                    </div>
-        
-                                    <div class="icones-habilidades">
-                                        <i class="fa-solid fa-database fa-3x" style="color: #ababab;"></i>
-                                        <p>BD</p>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div id="sass-box">
+                                        <i class="fa-brands fa-sass"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        <button id="next" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                 </div>
+            </div>
+
+            <div class="div-dados" id="divDadosCss">
+                <h3 id="css-h3">CSS</h3>
+
+                <p>(Cascading Style Sheets)</p>
+                <br>
+                <p id="css-p">Barra de aprendizado:</p>
+                <div id="css-barra">
+                    <div id="css-progresso">
+
+                    </div>
+
+                    <div id="css-porcentagem">
+                        <p>90%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-dados" id="divDadosHtml">
+                <h3 id="html-h3">HTML</h3>
+
+                <p>(HyperText Markup Language)</p>
+                <br>
+                <p id="html-p">Barra de aprendizado:</p>
+                <div id="html-barra">
+                    <div id="html-progresso">
+
+                    </div>
+
+                    <div id="html-porcentagem">
+                        <p>90%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-dados" id="divDadosJs">
+                <h3 id="js-h3">JavaScript</h3>
+
+                <br>
+                <p id="js-p">Barra de aprendizado:</p>
+                <div id="js-barra">
+                    <div id="js-progresso">
+
+                    </div>
+
+                    <div id="js-porcentagem">
+                        <p>70%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-dados" id="divDadosAngular">
+                <h3 id="angular-h3">Angular</h3>
+
+                <br>
+                <p id="angular-p">Barra de aprendizado:</p>
+                <div id="angular-barra">
+                    <div id="angular-progresso">
+
+                    </div>
+
+                    <div id="angular-porcentagem">
+                        <p>50%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-dados" id="divDadosPhp">
+                <h3 id="php-h3">PHP</h3>
+
+                <p>(Hypertext Preprocessor)</p>
+                <br>
+                <p id="php-p">Barra de aprendizado:</p>
+                <div id="php-barra">
+                    <div id="php-progresso">
+
+                    </div>
+
+                    <div id="php-porcentagem">
+                        <p>70%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-dados" id="divDadosBs">
+                <h3 id="bs-h3">Bootstrap</h3>
+
+                <br>
+                <p id="bs-p">Barra de aprendizado:</p>
+                <div id="bs-barra">
+                    <div id="bs-progresso">
+
+                    </div>
+
+                    <div id="bs-porcentagem">
+                        <p>100%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-dados" id="divDadosSass">
+                <h3 id="sass-h3">SASS</h3>
+
+                <p>(Syntactically Awesome Style Sheets)</p>
+                <br>
+                <p id="sass-p">Barra de aprendizado:</p>
+                <div id="sass-barra">
+                    <div id="sass-progresso">
+
+                    </div>
+
+                    <div id="sass-porcentagem">
+                        <p>100%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos">
+            <div class="container">
                 <div class="box">
-                    <h2>Projetos</h2>
+                    <div id="pTittle">
+                        <h2>Projetos</h2>
+                    </div>
 
-                    <div id="box-projetos">
-                        <ul id="nomes-projetos">
-                            <li>
-                                <button id="marketplace" onclick="mudarAbaProjeto(1)">Marketplace</button>
-                            </li>
-                            <li>
-                                <button id="youwrite" onclick="mudarAbaProjeto(2)">YouWrite</button>
-                            </li>
-                            <li>
-                                <button id="minigame" onclick="mudarAbaProjeto(3)">Minigame</button>
-                            </li>
-                        </ul>
-
-                        <div id="box-imagens-projetos">
-                            <div id="imagens-projetos">
-                                <div>
-                                    <p>Em breve</p>
-                                </div>
+                    <div class="projetos-box">
+                        <div class="projeto-one">
+                            <div class="background"></div>
+                            <div class="conteudo">
+                                <h3>Rifas</h3>
                             </div>
                         </div>
+
+                        <div class="projeto"></div>
+                    </div>
+
+                    <div class="projetos-box">
+                        <div class="projeto"></div>
+
+                        <div class="projeto"></div>
                     </div>
                 </div>
             </div>
@@ -134,7 +243,7 @@
                 </div>
 
                 <div id="redes">
-                    <a href="https://github.com/FelipeAM470" target="_blank">
+                    <a href="https://github.com/FelipeAnMo" target="_blank">
                         <i class="fa-brands fa-github fa-2xl"></i>
                     </a>
 

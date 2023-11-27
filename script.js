@@ -1,254 +1,49 @@
-let infoHabilidades = document.getElementById('info-habilidades')
-let paragrafo = document.getElementById('info-paragrafo');
-let habilidades = document.getElementById('habilidades');
-let boxBottom = document.getElementById('box-bottom');
-let sobre = document.getElementById('sobre');
-let seta = document.getElementById('seta');
+const seta = document.getElementById('seta');
+const items = document.querySelectorAll('.carousel-item');
+const carousel = document.getElementById('carousel');
+const icons = document.getElementById('carousel').querySelectorAll('.fa-brands');
 
-let marketplace = document.getElementById('marketplace');
-let youwrite = document.getElementById('youwrite');
-let minigame = document.getElementById('minigame');
-let icones = document.getElementById('icones');
+let currentIndex = 0;
+let habilidadesIcons = 1;
+let carouselItemWidth = 222;
+let posicaoInicial = { x: 0, y: 0 };
+let totalItems = (items.length / 5) + habilidadesIcons;
+let projetoOne = document.querySelector('.conteudo');
+let projetosBox = document.querySelectorAll('.projetos-box');
 
-let cloneInfo = paragrafo.cloneNode(true);
-let cloneHabilidades = infoHabilidades.cloneNode(true);
+if(window.innerWidth <= 506) {
+  carouselItemWidth = 120;
+  projetoOne.style.top = '-197px';
+  projetosBox[1].style.display = 'none';
+  habilidadesIcons = 4;
 
-let boxBottomSobre = 150;
-let boxBottomHabilidades = 235;
-let numero;
+} else if(window.innerWidth <= 700) {
+  carouselItemWidth = 135;
+  projetoOne.style.top = '-222px';
+  projetosBox[1].style.display = 'none';
+  habilidadesIcons = 4;
 
+} else if(window.innerWidth <= 940) {
+  carouselItemWidth = 186;
+  projetoOne.style.top = '-222px';
+  projetosBox[1].style.display = 'none';
+  habilidadesIcons = 4;
 
-function mudarAba(num) {
-    numero = num;
-    if(num === 1) {
-        sobre.style.background = 'linear-gradient(to bottom, var(--brancoAcinzentado), var(--branco))';
-        sobre.style.borderTop = '2px solid var(--cinzaClaro)';
-        sobre.style.borderRight = '2px solid var(--cinzaClaro)';
-        sobre.style.borderBottom = 'none';
-        sobre.style.borderRadius = '8px 8px 0px 0px';
+} else if(window.innerWidth <= 1060) {
+  carouselItemWidth = 186;
+  projetoOne.style.top = '-222px';
+  projetosBox[1].style.display = 'flex';
+  habilidadesIcons = 3;
 
-        habilidades.style.borderBottom = '2px solid var(--cinzaClaro)';
-        habilidades.style.background = 'var(--brancoAcinzentado)';
-        habilidades.style.borderTop = 'none';
-        habilidades.style.borderLeft = 'none';
+} else if(window.innerWidth <= 1390) {
+  carouselItemWidth = 222;
+  habilidadesIcons = 3;
+  projetoOne.style.top = '-252px';
 
-        paragrafo.style.opacity = 0;
-        
-        setTimeout(function() {
-            paragrafo.innerHTML = cloneInfo.innerHTML;
-            
-            if(window.innerWidth > 1024 && window.innerWidth < 1164 && (numero === 1 || numero === undefined)) {
-                boxBottomSobre = 175;
-            
-            } else if(window.innerWidth < 1024 && window.innerWidth >= 620 && (numero === 1 || numero === undefined)) {
-                boxBottomSobre = 125;
-                
-            } else if(window.innerWidth < 620 && window.innerWidth >= 524 && (numero === 1 || numero === undefined)) {
-                boxBottomSobre = 150;
-            
-            } else if(window.innerWidth < 524 && window.innerWidth >= 452 && (numero === 1 || numero === undefined)) {
-                boxBottomSobre = 175;
-            
-            } else if(window.innerWidth < 452 && window.innerWidth >= 410 && (numero === 1 || numero === undefined)) {
-                boxBottomSobre = 200;
-            
-            } else if(window.innerWidth < 410 && window.innerWidth >= 366 && (numero === 1 || numero === undefined)) {
-                boxBottomSobre = 225;
-            
-            } else if(window.innerWidth < 366 && (numero === 1 || numero === undefined)) {
-                boxBottomSobre = 250;
-            
-            }
+} else if(window.innerWidth <= 1500) {
+  habilidadesIcons = 2;
 
-            boxBottom.style.height = boxBottomSobre + 'px';
-
-            setTimeout(function() {
-                paragrafo.style.opacity = 1;
-            }, 200);
-        }, 300);
-
-    } else if(num === 2) {
-        habilidades.style.background = 'linear-gradient(to bottom, var(--brancoAcinzentado), var(--branco))';
-        habilidades.style.borderTop = '2px solid var(--cinzaClaro)';
-        habilidades.style.borderLeft = '2px solid var(--cinzaClaro)';
-        habilidades.style.borderBottom = 'none';
-        habilidades.style.borderRadius = '8px 8px 0px 0px';
-
-        sobre.style.borderBottom = '2px solid var(--cinzaClaro)';
-        sobre.style.background = 'var(--brancoAcinzentado)';
-        sobre.style.borderTop = 'none';
-        sobre.style.borderRight = 'none';
-
-        paragrafo.style.opacity = 0;
-
-        setTimeout( () => {
-            paragrafo.innerHTML = cloneHabilidades.innerHTML;
-
-            if(window.innerWidth > 1024 && window.innerWidth < 1366 && numero === 2) {
-                document.getElementById('icones').innerHTML = '';
-                boxBottomHabilidades = 125;
-        
-                if(window.innerWidth < 1224) {
-                    boxBottomHabilidades = 150;
-
-                }
-
-            } else if(window.innerWidth >= 620 && numero === 2) {
-                document.getElementById('icones').innerHTML = icones.innerHTML;
-                boxBottomHabilidades = 235;
-        
-            } else if(window.innerWidth < 620 && window.innerWidth >= 550 && numero === 2) {
-                document.getElementById('icones').innerHTML = '';
-                boxBottomHabilidades = 125;
-        
-            } else if(window.innerWidth < 550 && window.innerWidth >= 442 && numero === 2) {
-                document.getElementById('icones').innerHTML = '';
-                boxBottomHabilidades = 150;
-        
-            } else if(window.innerWidth < 442 && window.innerWidth >= 362 && numero === 2) {
-                document.getElementById('icones').innerHTML = '';
-                boxBottomHabilidades = 175;
-
-            } else if(window.innerWidth < 362 && numero === 2) {
-                document.getElementById('icones').innerHTML = '';
-                boxBottomHabilidades = 200;
-        
-            }
-
-            boxBottom.style.height = boxBottomHabilidades + 'px';
-
-            setTimeout( () => {
-                paragrafo.style.opacity = 1;
-
-            }, 200);
-        }, 300);
-
-    }
 }
-
-
-function mudarAbaProjeto(num) {
-    if(num === 1) {
-        marketplace.style.backgroundColor = 'var(--branco)';
-        marketplace.style.borderRight = 'none';
-        marketplace.style.borderTop = 'none';
-        marketplace.style.borderBottom = '2px solid var(--cinzaClaro)';
-
-        youwrite.style.backgroundColor = 'var(--brancoAcinzentado)';
-        youwrite.style.borderRight = '2px solid var(--cinzaClaro)';
-        youwrite.style.borderBottom = '2px solid var(--cinzaClaro)';
-        youwrite.style.borderTop = 'none';
-
-        minigame.style.backgroundColor = 'var(--brancoAcinzentado)';
-        minigame.style.borderRight = '2px solid var(--cinzaClaro)';
-        minigame.style.borderBottom = '2px solid var(--cinzaClaro)';
-        minigame.style.borderTop = 'none';
-
-    } else if(num === 2) {
-        youwrite.style.backgroundColor = 'var(--branco)';
-        youwrite.style.borderRight = 'none';
-        youwrite.style.borderTop = '2px solid var(--cinzaClaro)';
-        youwrite.style.borderBottom = '2px solid var(--cinzaClaro)';
-
-        marketplace.style.backgroundColor = 'var(--brancoAcinzentado)';
-        marketplace.style.borderRight = '2px solid var(--cinzaClaro)';
-        marketplace.style.borderBottom = 'none';
-
-        minigame.style.backgroundColor = 'var(--brancoAcinzentado)';
-        minigame.style.borderRight = '2px solid var(--cinzaClaro)';
-        minigame.style.borderBottom = '2px solid var(--cinzaClaro)';
-        minigame.style.borderTop = 'none';
-
-    } else if(num === 3) {
-        minigame.style.backgroundColor = 'var(--branco)';
-        minigame.style.borderRight = 'none';
-        minigame.style.borderTop = '2px solid var(--cinzaClaro)';
-        minigame.style.borderBottom = '2px solid var(--cinzaClaro)';
-
-        marketplace.style.backgroundColor = 'var(--brancoAcinzentado)';
-        marketplace.style.borderRight = '2px solid var(--cinzaClaro)';
-        marketplace.style.borderBottom = 'none';
-
-        youwrite.style.backgroundColor = 'var(--brancoAcinzentado)';
-        youwrite.style.borderRight = '2px solid var(--cinzaClaro)';
-        youwrite.style.borderTop = '2px solid var(--cinzaClaro)';
-        youwrite.style.borderBottom = 'none';
-
-    }
-}
-
-window.addEventListener('resize', () => {
-    navegadorWidth = window.innerWidth;
-
-    if(navegadorWidth > 1024 && navegadorWidth < 1164 && (numero === 1 || numero === undefined)) {
-        boxBottomSobre = 175;
-        boxBottom.style.height = boxBottomSobre + 'px';
-
-    } else if(navegadorWidth < 1024 && navegadorWidth >= 620 && (numero === 1 || numero === undefined)) {
-        boxBottomSobre = 125;
-        boxBottom.style.height = boxBottomSobre + 'px';
-        
-    } else if(navegadorWidth < 620 && navegadorWidth >= 524 && (numero === 1 || numero === undefined)) {
-        boxBottomSobre = 150;
-        boxBottom.style.height = boxBottomSobre + 'px';
-
-    } else if(navegadorWidth < 524 && navegadorWidth >= 452 && (numero === 1 || numero === undefined)) {
-        boxBottomSobre = 175;
-        boxBottom.style.height = boxBottomSobre + 'px';
-
-    } else if(navegadorWidth < 452 && navegadorWidth >= 410 && (numero === 1 || numero === undefined)) {
-        boxBottomSobre = 200;
-        boxBottom.style.height = boxBottomSobre + 'px';
-
-    } else if(navegadorWidth < 410 && navegadorWidth >= 366 && (numero === 1 || numero === undefined)) {
-        boxBottomSobre = 225;
-        boxBottom.style.height = boxBottomSobre + 'px';
-
-    } else if(navegadorWidth < 366 && (numero === 1 || numero === undefined)) {
-        boxBottomSobre = 250;
-        boxBottom.style.height = boxBottomSobre + 'px';
-
-    }
-
-    if(navegadorWidth > 1024 && navegadorWidth < 1366 && numero === 2) {
-        document.getElementById('icones').innerHTML = '';
-        boxBottomHabilidades = 125;
-        boxBottom.style.height = boxBottomHabilidades + 'px';
-
-        if(window.innerWidth < 1224) {
-            boxBottomHabilidades = 150;
-            boxBottom.style.height = boxBottomHabilidades + 'px';
-
-        }
-
-    } else if(navegadorWidth >= 620 && numero === 2) {
-        document.getElementById('icones').innerHTML = icones.innerHTML;
-        boxBottomHabilidades = 235;
-        boxBottom.style.height = boxBottomHabilidades + 'px';
-
-    } else if(navegadorWidth < 634 && navegadorWidth >= 564 && numero === 2) {
-        document.getElementById('icones').innerHTML = '';
-        boxBottomHabilidades = 125;
-        boxBottom.style.height = boxBottomHabilidades + 'px';
-
-    } else if(navegadorWidth < 564 && navegadorWidth >= 456 && numero === 2) {
-        document.getElementById('icones').innerHTML = '';
-        boxBottomHabilidades = 150;
-        boxBottom.style.height = boxBottomHabilidades + 'px';
-
-    } else if(navegadorWidth < 456 && navegadorWidth >= 376 && numero === 2) {
-        document.getElementById('icones').innerHTML = '';
-        boxBottomHabilidades = 175;
-        boxBottom.style.height = boxBottomHabilidades + 'px';
-
-    } else if(navegadorWidth < 376 && numero === 2) {
-        document.getElementById('icones').innerHTML = '';
-        boxBottomHabilidades = 200;
-        boxBottom.style.height = boxBottomHabilidades + 'px';
-
-    }
-});
-
 
 window.addEventListener('scroll', () => {
     let PosicaoScrollAtual = window.scrollY;
@@ -268,7 +63,7 @@ function criarCubo() {
     let styleLeft = Math.random() * window.innerWidth;
     
     if(window.innerWidth - styleLeft <= 30) {
-        styleLeft = window.innerWidth - 30;
+      styleLeft = window.innerWidth - 30;
     }
 
     const cubo = document.createElement('div');
@@ -280,48 +75,140 @@ function criarCubo() {
     document.getElementById('background').appendChild(cubo);
     
     cubo.addEventListener('animationiteration', () => {
-        document.getElementById('background').removeChild(cubo);
+      document.getElementById('background').removeChild(cubo);
     });
 }
 
 
 setInterval(criarCubo, 400);
 
-infoHabilidades.remove();
-
-if(window.innerWidth > 1024 && window.innerWidth < 1164 && (numero === 1 || numero === undefined)) {
-    boxBottomSobre = 175;
-
-} else if(window.innerWidth < 1024 && window.innerWidth >= 620 && (numero === 1 || numero === undefined)) {
-    boxBottomSobre = 125;
-    
-} else if(window.innerWidth < 620 && window.innerWidth >= 524 && (numero === 1 || numero === undefined)) {
-    boxBottomSobre = 150;
-
-} else if(window.innerWidth < 524 && window.innerWidth >= 452 && (numero === 1 || numero === undefined)) {
-    boxBottomSobre = 175;
-
-} else if(window.innerWidth < 452 && window.innerWidth >= 410 && (numero === 1 || numero === undefined)) {
-    boxBottomSobre = 200;
-
-} else if(window.innerWidth < 410 && window.innerWidth >= 366 && (numero === 1 || numero === undefined)) {
-    boxBottomSobre = 225;
-
-} else if(window.innerWidth < 366 && (numero === 1 || numero === undefined)) {
-    boxBottomSobre = 250;
-
-}
-
-boxBottom.style.height = boxBottomSobre + 'px';
-
-document.addEventListener("visibilitychange", function() {
+document.addEventListener("visibilitychange", () => {
     let elemCubos = document.getElementById('background').querySelectorAll('.cubos');
 
     if (document.visibilityState == 'visible') {
-        elemCubos.forEach((e => {
-            e.remove();
-        }));
+      elemCubos.forEach((e => {
+        e.remove();
+      }));
     }
 });
 
 
+function nextSlide() {
+    if (currentIndex < Math.ceil(totalItems) - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0;
+    }
+    updateCarousel();
+}
+
+function prevSlide() {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = Math.ceil(totalItems) - 1;
+    }
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const newTransformValue = -currentIndex * carouselItemWidth + 'px';
+    document.getElementById('carousel').style.transform = 'translateX(' + newTransformValue + ')';
+}
+
+function updateWidth() {
+    let larguraJanela = window.innerWidth;
+    totalItems = (items.length / 5) + habilidadesIcons;
+
+    if(larguraJanela <= 506) {
+      carouselItemWidth = 120;
+      projetoOne.style.top = '-197px';
+      projetosBox[1].style.display = 'none';
+      habilidadesIcons = 4;
+
+    } else if(larguraJanela <= 700) {
+      carouselItemWidth = 135;
+      projetoOne.style.top = '-222px';
+      projetosBox[1].style.display = 'none';
+      habilidadesIcons = 4;
+
+    } else if(larguraJanela <= 940) {
+      carouselItemWidth = 186;
+      projetoOne.style.top = '-222px';
+      projetosBox[1].style.display = 'none';
+      habilidadesIcons = 4;
+
+    } else if(larguraJanela <= 1060) {
+      carouselItemWidth = 186;
+      habilidadesIcons = 3;
+      projetoOne.style.top = '-222px';
+      projetosBox[1].style.display = 'flex';
+
+    } else if(larguraJanela <= 1390) {
+      carouselItemWidth = 222;
+      habilidadesIcons = 3;
+      projetoOne.style.top = '-252px';
+
+    } else if(larguraJanela <= 1500) {
+      habilidadesIcons = 2;
+
+    } else if(larguraJanela > 1500) {
+      habilidadesIcons = 1;
+
+    }
+
+
+    let elemCubos = document.getElementById('background').querySelectorAll('.cubos');
+    elemCubos.forEach((e => {
+      e.remove();
+    }));
+}
+
+window.addEventListener('resize', updateWidth);
+
+updateWidth();
+
+projetoOne.addEventListener('mouseover', () => {
+  let background = document.querySelector('.background');
+
+  background.style.filter = 'blur(0px)';
+});
+
+projetoOne.addEventListener('mouseout', () => {
+  let background = document.querySelector('.background');
+
+  background.style.filter = 'blur(4px)';
+});
+
+projetoOne.addEventListener('click', () => {
+  window.open('http://rifa-portfolio.rf.gd/', '_blank');
+});
+
+
+document.getElementById('html-box').addEventListener('mousemove', (event) => {mostrarDivDados(document.getElementById('divDadosHtml'), event)});
+document.getElementById('html-box').addEventListener('mouseout', () => {esconderDivDados(document.getElementById('divDadosHtml'))});
+document.getElementById('css-box').addEventListener('mousemove', (event) => {mostrarDivDados(document.getElementById('divDadosCss'), event)});
+document.getElementById('css-box').addEventListener('mouseout', () => {esconderDivDados(document.getElementById('divDadosCss'))});
+document.getElementById('js-box').addEventListener('mousemove', (event) => {mostrarDivDados(document.getElementById('divDadosJs'), event)});
+document.getElementById('js-box').addEventListener('mouseout', () => {esconderDivDados(document.getElementById('divDadosJs'))});
+document.getElementById('angular-box').addEventListener('mousemove', (event) => {mostrarDivDados(document.getElementById('divDadosAngular'), event)});
+document.getElementById('angular-box').addEventListener('mouseout', () => {esconderDivDados(document.getElementById('divDadosAngular'))});
+document.getElementById('php-box').addEventListener('mousemove', (event) => {mostrarDivDados(document.getElementById('divDadosPhp'), event)});
+document.getElementById('php-box').addEventListener('mouseout', () => {esconderDivDados(document.getElementById('divDadosPhp'))});
+document.getElementById('bs-box').addEventListener('mousemove', (event) => {mostrarDivDados(document.getElementById('divDadosBs'), event)});
+document.getElementById('bs-box').addEventListener('mouseout', () => {esconderDivDados(document.getElementById('divDadosBs'))});
+document.getElementById('sass-box').addEventListener('mousemove', (event) => {mostrarDivDados(document.getElementById('divDadosSass'), event)});
+document.getElementById('sass-box').addEventListener('mouseout', () => {esconderDivDados(document.getElementById('divDadosSass'))});
+
+function mostrarDivDados(divDados, event) {
+  posicaoInicial.x = event.pageX;
+  posicaoInicial.y = event.pageY;
+
+  divDados.style.left = (posicaoInicial.x + 3) + 'px';
+  divDados.style.top = (posicaoInicial.y + 3) + 'px';
+  divDados.style.display = 'flex';
+}
+
+function esconderDivDados(divDados) {
+  divDados.style.display = 'none';
+}
