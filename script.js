@@ -204,6 +204,7 @@ let distanciaY;
 let distanciaX = 3;
 
 document.addEventListener("mousemove", updateMousePosition);
+document.addEventListener("click", updateMousePosition);
 
 function mostrarDivDados(divDados, event) {
   posicaoInicial.x = event.pageX;
