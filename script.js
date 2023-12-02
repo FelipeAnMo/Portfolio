@@ -200,24 +200,51 @@ document.getElementById('bs-box').addEventListener('mouseout', () => {esconderDi
 document.getElementById('sass-box').addEventListener('mousemove', (event) => {mostrarDivDados(document.getElementById('divDadosSass'), event)});
 document.getElementById('sass-box').addEventListener('mouseout', () => {esconderDivDados(document.getElementById('divDadosSass'))});
 
+let distanciaY;
+let distanciaX = 3;
+
 function mostrarDivDados(divDados, event) {
-  let distancia;
+  document.addEventListener("mousemove", updateMousePosition);
+
   posicaoInicial.x = event.pageX;
   posicaoInicial.y = event.pageY;
 
-  if(window.innerWidth <= 700) {
-    distancia = 50;
+  if(window.innerWidth <= 900) {
+    distanciaY = 50;
 
   } else {
-    distancia = 3;
+    distanciaY = 3;
 
   }
 
-  divDados.style.left = (posicaoInicial.x + 3) + 'px';
-  divDados.style.top = (posicaoInicial.y + distancia) + 'px';
+  divDados.style.left = (posicaoInicial.x + distanciaX) + 'px';
+  divDados.style.top = (posicaoInicial.y + distanciaY) + 'px';
   divDados.style.display = 'flex';
 }
 
 function esconderDivDados(divDados) {
   divDados.style.display = 'none';
+}
+
+function updateMousePosition(event) {
+  mouseX = event.clientX;
+  let metadeWidth = window.innerWidth / 2;
+
+  if(window.innerWidth <= 900 && mouseX >= metadeWidth) {
+    distanciaX = -250;
+    let divs = document.querySelectorAll('.div-dados');
+
+    divs.forEach(function(div) {
+      div.style.borderRadius = '26px 0px 26px 26px';
+    });
+
+  } else {
+    distanciaX = 3;
+    let divs = document.querySelectorAll('.div-dados');
+
+    divs.forEach(function(div) {
+      div.style.borderRadius = '0px 26px 26px 26px';
+    });
+
+  }
 }
