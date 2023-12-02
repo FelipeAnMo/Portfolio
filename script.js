@@ -203,9 +203,9 @@ document.getElementById('sass-box').addEventListener('mouseout', () => {esconder
 let distanciaY;
 let distanciaX = 3;
 
-function mostrarDivDados(divDados, event) {
-  document.addEventListener("mousemove", updateMousePosition);
+document.addEventListener("mousemove", updateMousePosition);
 
+function mostrarDivDados(divDados, event) {
   posicaoInicial.x = event.pageX;
   posicaoInicial.y = event.pageY;
 
