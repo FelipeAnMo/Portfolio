@@ -201,11 +201,20 @@ document.getElementById('sass-box').addEventListener('mousemove', (event) => {mo
 document.getElementById('sass-box').addEventListener('mouseout', () => {esconderDivDados(document.getElementById('divDadosSass'))});
 
 function mostrarDivDados(divDados, event) {
+  let distancia;
   posicaoInicial.x = event.pageX;
   posicaoInicial.y = event.pageY;
 
+  if(window.innerWidth <= 700) {
+    distancia = 50;
+
+  } else {
+    distancia = 3;
+
+  }
+
   divDados.style.left = (posicaoInicial.x + 3) + 'px';
-  divDados.style.top = (posicaoInicial.y + 3) + 'px';
+  divDados.style.top = (posicaoInicial.y + distancia) + 'px';
   divDados.style.display = 'flex';
 }
 
